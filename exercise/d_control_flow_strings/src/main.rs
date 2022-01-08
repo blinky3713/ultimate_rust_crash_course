@@ -14,6 +14,14 @@ fn main() {
 
     // This consumes the `args` vector to iterate through each String
     for arg in args {
+        if arg == "sum" {
+            sum()
+        } else if arg == "double" {
+            double()
+        } else {
+            count(arg)
+        };
+
         // 1a. Your task: handle the command-line arguments!
         //
         // - If arg is "sum", then call the sum() function
@@ -51,7 +59,15 @@ fn count(arg: String) {
     // Challenge: Use an unconditional loop (`loop`) to print `arg` 8 times, and then break.
     // You will need to count your loops, somehow.  Run it with `cargo run bananas`
     //
-    // print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
+    let mut x : i32 = 8;
+    'b: loop {
+        if x == 0 {
+            break 'b
+        } else {
+            x -= 1;
+            print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
+        }
+    }
 
 
     println!(); // This will output just a newline at the end for cleanliness.
